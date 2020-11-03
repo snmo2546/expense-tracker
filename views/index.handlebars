@@ -1,1 +1,7 @@
-This is a Expense Tracker xD
+<ul>
+  {{#each records}}
+  <li>
+    {{this.name}}, {{this.category}}, {{this.amount}}, {{this.date}}, {{this.categoryIcon}}
+  </li>
+  {{/each}}
+</ul>
