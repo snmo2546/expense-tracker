@@ -3,6 +3,7 @@ const express = require('express')
 const Record = require('../../models/record')
 const router = express.Router()
 
+// set routes
 router.get('/', (req, res) => {
   Record.find()
     .lean()
@@ -10,4 +11,5 @@ router.get('/', (req, res) => {
     .catch(error => console.log(error))
 })
 
+// export module
 module.exports = router
