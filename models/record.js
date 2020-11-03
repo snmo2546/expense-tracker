@@ -1,17 +1,24 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 const recordSchema = new Schema({
+  dataType: {
+    type: String
+  },
   name: {
     type: String,
     required: true
   },
   date: {
-    type: date,
+    type: String,
     required: true
   },
   category: {
     type: String,
     required: true
+  },
+  categoryIcon: {
+    type: String,
+    required: false
   },
   amount: {
     type: Number,
