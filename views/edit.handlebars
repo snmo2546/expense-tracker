@@ -1,0 +1,7 @@
+<form action="/records/{{ record._id }}/edit" method="POST">
+  <input type="text" placeholder="名稱" name="name" value="{{ record.name }}">
+  <input type="date" placeholder="日期" name="date" value="{{ record.date }}">
+  <input type="text" placeholder="類別" name="category" value="{{ record.category }}">
+  <input type="text" placeholder="金額" name="amount" value="{{ record.amount }}">
+  <button type="submit">新增支出</button>
+</form>
