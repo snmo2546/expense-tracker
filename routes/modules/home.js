@@ -15,7 +15,7 @@ router.get('/', (req, res) => {
       Record.find()
         .lean()
         .then(records => {
-          if (selectedFilter && selectedFilter !== "") {
+          if (selectedFilter && selectedFilter !== "所有支出") {
             records = records.filter(record => record.categoryName === selectedFilter)
           }
           res.render('index', { records, categories, selectedFilter, totalAmount: calculateTotalAmount(records) })

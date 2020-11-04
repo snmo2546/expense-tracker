@@ -1,0 +1,14 @@
+.newRecord {
+  background-color: tomato; 
+  color:white; font-size: 16px; 
+  padding: 10px 40px; 
+  border: 1.5px solid black;
+}
+
+#records li:nth-of-type(odd) { 
+  background:#F5F5F5;
+}
+
+#records li:nth-of-type(even) { 
+  background:#FFF;
+}
