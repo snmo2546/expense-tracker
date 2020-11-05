@@ -49,7 +49,7 @@ router.get('/:id/edit', (req, res) => {
     .catch(error => console.log(error))
 })
 
-router.post('/:id/edit', (req, res) => {
+router.put('/:id', (req, res) => {
   const id = req.params.id
   return Record.findById(id)
     .then(record => {
@@ -66,7 +66,7 @@ router.post('/:id/edit', (req, res) => {
     .catch(error => console.log(error))
 })
 
-router.post('/:id/delete', (req, res) => {
+router.delete('/:id', (req, res) => {
   const id = req.params.id
   return Record.findById(id)
     .then(record => record.remove())
