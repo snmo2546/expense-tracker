@@ -16,7 +16,7 @@ router.get('/', (req, res) => {
         .lean()
         .then(records => {
           if (typeof selectedFilter !== 'undefined' && selectedFilter !== "所有支出") {
-            records = records.filter(record => record.categoryName === selectedFilter)
+            records = records.filter(record => record.category === selectedFilter)
             showSelectedCategory(categories, selectedFilter)
           } else if (selectedFilter === "所有支出") {
             return res.render('index', { records, categories, totalAmount: calculateTotalAmount(records) })
