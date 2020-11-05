@@ -54,7 +54,13 @@ router.post('/:id/edit', (req, res) => {
   return Record.findById(id)
     .then(record => {
       record = Object.assign(record, req.body)
-      return record.save()
+      Category.find()
+        .lean()
+        .then(categories => {
+          const assignedCategory = categories.find(category => category.categoryName === record.categoryName)
+          record.categoryIcon = assignedCategory.categoryIcon
+          return record.save()
+        })
     })
     .then(() => res.redirect('/'))
     .catch(error => console.log(error))
