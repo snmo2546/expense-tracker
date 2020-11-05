@@ -15,13 +15,20 @@ router.get('/new', (req, res) => {
 
 router.post('/', (req, res) => {
   const record = req.body
-  return Record.create({
-    "name": record.name,
-    "date": record.date,
-    "category": record.category,
-    "amount": record.amount
-  })
-    .then(() => res.redirect('/'))
+  Category.find()
+    .lean()
+    .then(categories => {
+      const assignedCategory = categories.find(category => category.categoryName === record.categoryName)
+      return Record.create({
+        "name": record.name,
+        "date": record.date,
+        "categoryName": record.categoryName,
+        "categoryIcon": assignedCategory.categoryIcon,
+        "amount": record.amount
+      })
+        .then(() => res.redirect('/'))
+        .catch(error => console.log(error))
+    })
     .catch(error => console.log(error))
 })
 
