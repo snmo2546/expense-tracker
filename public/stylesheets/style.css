@@ -1,4 +1,4 @@
-.newRecord {
+.recordBtn {
   background-color: tomato; 
   color:white; font-size: 16px; 
   padding: 10px 40px; 
@@ -11,4 +11,12 @@
 
 #records li:nth-of-type(even) { 
   background:#FFF;
+}
+
+.formInput {
+  height: 50px;
+}
+
+.form-group {
+  margin-bottom: 50px;
 }

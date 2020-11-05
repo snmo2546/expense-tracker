@@ -17,6 +17,11 @@ router.get('/', (req, res) => {
         .then(records => {
           if (selectedFilter && selectedFilter !== "所有支出") {
             records = records.filter(record => record.categoryName === selectedFilter)
+            for (let i = 0; i < categories.length; i++) {
+              if (categories[i].categoryName === selectedFilter) {
+                categories.splice(i, 1)
+              }
+            }
           }
           res.render('index', { records, categories, selectedFilter, totalAmount: calculateTotalAmount(records) })
         })

@@ -1,11 +1,16 @@
 // include Express and Express router
 const express = require('express')
 const Record = require('../../models/record')
+const Category = require('../../models/category')
+const showSelectedCategory = require('../../models/functions/showSelectedCategory')
 const router = express.Router()
 
 // set routes
 router.get('/new', (req, res) => {
-  return res.render('new')
+  Category.find()
+    .lean()
+    .then(categories => res.render('new', { categories }))
+    .catch(error => console.log(error))
 })
 
 router.post('/', (req, res) => {
@@ -24,7 +29,16 @@ router.get('/:id/edit', (req, res) => {
   const id = req.params.id
   return Record.findById(id)
     .lean()
-    .then((record) => res.render('edit', { record }))
+    .then(record => {
+      const recordCategory = record.categoryName
+      Category.find()
+        .lean()
+        .then(categories => {
+          showSelectedCategory(categories, recordCategory)
+          res.render('edit', { record, categories, recordCategory })
+        })
+        .catch(error => console.log(error))
+    })
     .catch(error => console.log(error))
 })
 
