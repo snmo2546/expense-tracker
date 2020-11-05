@@ -18,11 +18,11 @@ router.post('/', (req, res) => {
   Category.find()
     .lean()
     .then(categories => {
-      const assignedCategory = categories.find(category => category.categoryName === record.categoryName)
+      const assignedCategory = categories.find(category => category.category === record.category)
       return Record.create({
         "name": record.name,
         "date": record.date,
-        "categoryName": record.categoryName,
+        "category": record.category,
         "categoryIcon": assignedCategory.categoryIcon,
         "amount": record.amount
       })
@@ -37,7 +37,7 @@ router.get('/:id/edit', (req, res) => {
   return Record.findById(id)
     .lean()
     .then(record => {
-      const recordCategory = record.categoryName
+      const recordCategory = record.category
       Category.find()
         .lean()
         .then(categories => {
@@ -57,7 +57,7 @@ router.post('/:id/edit', (req, res) => {
       Category.find()
         .lean()
         .then(categories => {
-          const assignedCategory = categories.find(category => category.categoryName === record.categoryName)
+          const assignedCategory = categories.find(category => category.category === record.category)
           record.categoryIcon = assignedCategory.categoryIcon
           return record.save()
         })

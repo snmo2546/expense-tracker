@@ -8,7 +8,7 @@ const recordSchema = new Schema({
   date: {
     type: String,
   },
-  categoryName: {
+  category: {
     type: String,
   },
   categoryIcon: {
