@@ -7,7 +7,7 @@ const routes = require('./routes')
 require('./config/mongoose')
 
 const app = express()
-const port = 3000
+const PORT = porcess.env.PORT || 3000
 
 // register express-handlebars helper
 const hbs = exphbs.create({
@@ -29,6 +29,6 @@ app.use(bodyParser.urlencoded({ extended: true }))
 app.use(routes)
 
 // start Express server and listen for connections
-app.listen(port, () => {
-  console.log(`Expense tracker is running on http://localhost:${port}`)
+app.listen(PORT, () => {
+  console.log(`Expense tracker is running on http://localhost:${PORT}`)
 })
