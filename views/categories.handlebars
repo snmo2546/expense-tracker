@@ -4,15 +4,19 @@
   </div>
   <div class="row row-cols-1 row-cols-md-3">
     {{#each categories}}
-    <div class="col mb-2">
-      <div class="d-flex align-items-center">
-        <div class="mb-2" style="font-size: 40px; color: tomato;">
+    <div class="col mb-2 d-flex justify-content-between align-items-center">
+      <div class="col-8 d-flex align-items-center" style="padding: 0px;">
+        <div class="mb-2 col-4" style="font-size: 40px; color: tomato; padding: 0px;">
           {{{ this.categoryIcon }}}
         </div>
-        <div>
-          <h5 class="card-title">{{ this.category }}</h5>
+        <div style="padding-left: 10px;">
+          <span class="card-title">{{ this.category }}</span>
         </div>
       </div>
+      <form class="col-4" action="./categories/{{ this._id }}?_method=DELETE" method="POST"
+        style="display: inline; padding: 0px;">
+        <button type="submit" style="background-color: transparent; border: 0px; padding-left: 30px;">刪除</button>
+      </form>
     </div>
     {{/each}}
   </div>

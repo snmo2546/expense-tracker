@@ -16,11 +16,18 @@ router.get('/', (req, res) => {
 
 router.post('/', (req, res) => {
   const icon = req.body
-  console.log(icon)
   return Category.create({
     'category': icon.name,
     'categoryIcon': icon.iconSelection,
   })
+    .then(() => res.redirect('/categories'))
+    .catch(error => console.log(error))
+})
+
+router.delete('/:id', (req, res) => {
+  const id = req.params.id
+  return Category.findById(id)
+    .then(category => category.remove())
     .then(() => res.redirect('/categories'))
     .catch(error => console.log(error))
 })
