@@ -1,5 +1,21 @@
 [
   {
+    "name": "home",
+    "htmlTag": "<i class=\"fas fa-home\"></i>"
+  },
+  {
+    "name": "shuttleVan",
+    "htmlTag": "<i class=\"fas fa-shuttle-van\"></i>"
+  },
+  {
+    "name": "grinBeam",
+    "htmlTag": "<i class=\"fas fa-grin-beam\"></i>"
+  },
+  {
+    "name": "utensils",
+    "htmlTag": "<i class=\"fas fa-utensils\"></i>"
+  },
+  {
     "name": "book",
     "htmlTag": "<i class=\"fas fa-book\"></i>"
   },
