@@ -1,0 +1,26 @@
+[
+  {
+    "name": "book",
+    "htmlTag": "<i class=\"fas fa-book\"></i>"
+  },
+  {
+    "name": "gift",
+    "htmlTag": "<i class=\"fas fa-gift\"></i>"
+  },
+  {
+    "name": "tshirt",
+    "htmlTag": "<i class=\"fas fa-tshirt\"></i>"
+  },
+  {
+    "name": "paw",
+    "htmlTag": "<i class=\"fas fa-paw\"></i>"
+  },
+  {
+    "name": "plane",
+    "htmlTag": "<i class=\"fas fa-plane\"></i>"
+  },
+  {
+    "name": "babyCarriage",
+    "htmlTag": "<i class=\"fas fa-baby-carriage\"></i>"
+  }
+]

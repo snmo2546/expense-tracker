@@ -17,3 +17,32 @@
     {{/each}}
   </div>
 </div>
+
+<div class="container d-flex" style="margin-top: 100px;">
+  <div style="margin-right: 40px;">
+    <h3>新增類別</h3>
+  </div>
+  <form action="/categories" method="POST">
+    <div class="form-group row">
+      <label class="col-4 d-flex align-items-center" for="inputName">類別名稱*：</label>
+      <input name="name" id="inputName" type="text" class="form-control col-8 formInput" required>
+    </div>
+    <div class="row row-cols-1 row-cols-md-3" aria-required="true">
+      {{#each icons}}
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="iconSelection" id="{{ this.name }}"
+          value="{{ this.htmlTag }}">
+        <label class="form-check-label" for="{{ this.name }}">
+          {{{ this.htmlTag }}}
+        </label>
+      </div>
+
+      {{!-- <div class="custom-control custom-radio">
+        <input type="radio" id="{{ this.name }}" name="formRadio" class="custom-control-input" value="{{ this.name }}">
+        <label class="custom-control-label" for="{{ this.name }}"><i class="{{ this.icon }}"></i></label>
+      </div> --}}
+      {{/each}}
+      <button type="submit">新增類別</button>
+  </form>
+
+</div>
