@@ -2,7 +2,8 @@
 const express = require('express')
 const Record = require('../../models/record')
 const Category = require('../../models/category')
-const showSelectedCategory = require('../../models/functions/showSelectedCategory')
+const functions = require('../../models/functions/functions')
+const showSelectedCategory = functions.showSelectedFilter
 const router = express.Router()
 
 // set routes
@@ -20,11 +21,11 @@ router.post('/', (req, res) => {
     .then(categories => {
       const assignedCategory = categories.find(category => category.category === record.category)
       return Record.create({
-        "name": record.name,
-        "date": record.date,
-        "category": record.category,
-        "categoryIcon": assignedCategory.categoryIcon,
-        "amount": record.amount
+        'name': record.name,
+        'date': record.date,
+        'category': record.category,
+        'categoryIcon': assignedCategory.categoryIcon,
+        'amount': record.amount
       })
         .then(() => res.redirect('/'))
         .catch(error => console.log(error))

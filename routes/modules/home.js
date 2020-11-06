@@ -2,8 +2,9 @@
 const express = require('express')
 const Record = require('../../models/record')
 const Category = require('../../models/category')
-const calculateTotalAmount = require('../../models/functions/calculateTotalAmount')
-const showSelectedCategory = require('../../models/functions/showSelectedCategory')
+const functions = require('../../models/functions/functions')
+const calculateTotalAmount = functions.calculateTotalAmount
+const showSelectedCategory = functions.showSelectedFilter
 const router = express.Router()
 
 // set routes
@@ -15,10 +16,10 @@ router.get('/', (req, res) => {
       Record.find()
         .lean()
         .then(records => {
-          if (typeof selectedFilter !== 'undefined' && selectedFilter !== "所有支出") {
+          if (typeof selectedFilter !== 'undefined' && selectedFilter !== '所有支出') {
             records = records.filter(record => record.category === selectedFilter)
             showSelectedCategory(categories, selectedFilter)
-          } else if (selectedFilter === "所有支出") {
+          } else if (selectedFilter === '所有支出') {
             return res.render('index', { records, categories, totalAmount: calculateTotalAmount(records) })
           }
           res.render('index', { records, categories, selectedFilter, totalAmount: calculateTotalAmount(records) })

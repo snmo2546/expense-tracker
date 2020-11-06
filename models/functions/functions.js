@@ -1,3 +1,11 @@
+function calculateTotalAmount(records) {
+  let totalAmount = 0
+  records.forEach(record => {
+    totalAmount += record.amount
+  })
+  return totalAmount
+}
+
 function showSelectedFilter(categories, selectedCategory) {
   for (let i = 0; i < categories.length; i++) {
     if (categories[i].category === selectedCategory) {
@@ -7,4 +15,4 @@ function showSelectedFilter(categories, selectedCategory) {
   return categories
 }
 
-module.exports = showSelectedFilter
+module.exports = { calculateTotalAmount, showSelectedFilter }
