@@ -22,5 +22,13 @@
   {
     "name": "babyCarriage",
     "htmlTag": "<i class=\"fas fa-baby-carriage\"></i>"
+  },
+  {
+    "name": "glassCheers",
+    "htmlTag": "<i class=\"fas fa-glass-cheers\"></i>"
+  },
+  {
+    "name": "fileInvoiceDollar",
+    "htmlTag": "<i class=\"fas fa-file-invoice-dollar\"></i>"
   }
 ]

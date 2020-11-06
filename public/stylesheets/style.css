@@ -38,3 +38,8 @@
 #amountHelp {
   margin-left: 180px;
 }
+
+.form-check-label {
+  font-size: 40px; 
+  color: tomato;
+}
