@@ -6,15 +6,17 @@
     </div>
     <div class="form-group row">
       <label class="col-4 d-flex align-items-center" for="inputName">項目名稱*：</label>
-      <input name="name" id="inputName" type="text" class="form-control col-8 formInput" value="{{ record.name }}">
+      <input name="name" id="inputName" type="text" class="form-control col-8 formInput" value="{{ record.name }}"
+        required>
     </div>
     <div class="form-group row">
       <label class="col-4 d-flex align-items-center" for="inputDate">日期*：</label>
-      <input name="date" id="inputDate" type="date" class="form-control col-8 formInput" value="{{ record.date }}">
+      <input name="date" id="inputDate" type="date" class="form-control col-8 formInput" value="{{ record.date }}"
+        required>
     </div>
     <div class="form-group row">
       <label class="col-4 d-flex align-items-center" for="inputCategory">類別*：</label>
-      <select name="category" class="form-control col-8 formInput" id="inputCategory">
+      <select name="category" class="form-control col-8 formInput" id="inputCategory" required>
         <option value={{ recordCategory }}>{{ recordCategory }}</option>
         {{#each categories}}
         <option value={{ this.category }}>{{ this.category }}</option>
@@ -23,8 +25,8 @@
     </div>
     <div class="form-group row">
       <label class="col-4 d-flex align-items-center" for="inputAmount">金額*：</label>
-      <input name="amount" type="text" class="form-control col-8 formInput" id="inputAmount"
-        value="{{ record.amount }}">
+      <input name="amount" type="text" class="form-control col-8 formInput" id="inputAmount" value="{{ record.amount }}"
+        required>
     </div>
     <div class="form-group row d-flex justify-content-center">
       <button type="submit" class="btn recordBtn">修改支出</button>
