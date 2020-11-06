@@ -7,14 +7,14 @@
 }
 
 
-.recordBtn {
+.urlBtn {
   background-color: tomato; 
   color:white; font-size: 16px; 
   padding: 10px 40px; 
   border: 1.5px solid black;
 }
 
-.navbar-brand:hover, .recordBtn:hover {
+.navbar-brand:hover, .urlBtn:hover {
   color: black;
   text-decoration: none;
 }
