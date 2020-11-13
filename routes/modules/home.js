@@ -3,26 +3,29 @@ const express = require('express')
 const Record = require('../../models/record')
 const Category = require('../../models/category')
 const functions = require('../../models/functions/functions')
+const months = require('../../models/data/months.json')
 const calculateTotalAmount = functions.calculateTotalAmount
-const showSelectedCategory = functions.showSelectedFilter
 const router = express.Router()
 
 // set routes
 router.get('/', (req, res) => {
   let selectedFilter = req.query.filter
+  let selectedMonth = req.query.filterMonth
   Category.find()
     .lean()
     .then(categories => {
       Record.find()
         .lean()
         .then(records => {
-          if (typeof selectedFilter !== 'undefined' && selectedFilter !== '所有支出') {
+          if (typeof selectedFilter !== 'undefined' && selectedFilter !== 'all') {
             records = records.filter(record => record.category === selectedFilter)
-            showSelectedCategory(categories, selectedFilter)
-          } else if (selectedFilter === '所有支出') {
-            return res.render('index', { records, categories, totalAmount: calculateTotalAmount(records) })
           }
-          res.render('index', { records, categories, selectedFilter, totalAmount: calculateTotalAmount(records) })
+
+          if (typeof selectedMonth !== 'undefined' && selectedMonth !== 'all') {
+            records = records.filter(record => record.date.split('-')[1] === selectedMonth)
+          }
+
+          res.render('index', { records, categories, selectedFilter, months, selectedMonth, totalAmount: calculateTotalAmount(records) })
         })
         .catch(error => console.log(error))
     })

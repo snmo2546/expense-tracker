@@ -1,0 +1,50 @@
+[
+  {
+    "month": "一月",
+    "value": "1"
+  },
+  {
+    "month": "二月",
+    "value": "2"
+  },
+  {
+    "month": "三月",
+    "value": "3"
+  },
+  {
+    "month": "四月",
+    "value": "4"
+  },
+  {
+    "month": "五月",
+    "value": "5"
+  },
+  {
+    "month": "六月",
+    "value": "6"
+  },
+  {
+    "month": "七月",
+    "value": "7"
+  },
+  {
+    "month": "八月",
+    "value": "8"
+  },
+  {
+    "month": "九月",
+    "value": "9"
+  },
+  {
+    "month": "十月",
+    "value": "10"
+  },
+  {
+    "month": "十一月",
+    "value": "11"
+  },
+  {
+    "month": "十二月",
+    "value": "12"
+  }
+]

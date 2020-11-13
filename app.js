@@ -14,7 +14,7 @@ const PORT = process.env.PORT || 3000
 const hbs = exphbs.create({
   defaultlayout: 'main',
   helpers: {
-    equals: function (value1, value2) { return (value1 === value2) }
+    isSelected: function (value1, value2) { return value1 === value2 ? 'selected' : '' }
   }
 })
 
