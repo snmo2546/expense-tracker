@@ -25,7 +25,8 @@ router.post('/', (req, res) => {
         'date': record.date,
         'category': record.category,
         'categoryIcon': assignedCategory.categoryIcon,
-        'amount': record.amount
+        'amount': record.amount,
+        'merchant': record.merchant
       })
         .then(() => res.redirect('/'))
         .catch(error => console.log(error))

@@ -17,6 +17,7 @@ db.once('open', () => {
       category: '休閒娛樂',
       categoryIcon: '<i class="fas fa-grin-beam"></i>',
       amount: 1000,
+      merchant: '威秀影城'
     },
     {
       name: '加油錢',
@@ -24,6 +25,7 @@ db.once('open', () => {
       category: '交通出行',
       categoryIcon: '<i class="fas fa-shuttle-van"></i>',
       amount: 1500,
+      merchant: '中油'
     },
     {
       name: 'Retro Mojo Coffee',
@@ -31,6 +33,7 @@ db.once('open', () => {
       category: '餐飲食品',
       categoryIcon: '<i class="fas fa-utensils"></i>',
       amount: 800,
+      merchant: 'Retro Mojo Coffee'
     },
     {
       name: 'iPhone 12 Pro 太平洋藍',
@@ -38,6 +41,7 @@ db.once('open', () => {
       category: '其他',
       categoryIcon: '<i class="fas fa-pen"></i>',
       amount: 37400,
+      merchant: 'Apple'
     },
   ).then(() => {
     console.log('Record seed data has been added!')
