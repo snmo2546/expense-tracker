@@ -1,5 +1,6 @@
 // include packages and define server related variables
 const express = require('express')
+const session = require('express-session')
 const exphbs = require('express-handlebars')
 const bodyParser = require('body-parser')
 const methodOverride = require('method-override')
@@ -21,6 +22,13 @@ const hbs = exphbs.create({
 // set template engine
 app.engine('handlebars', hbs.engine)
 app.set('view engine', 'handlebars')
+
+// set session
+app.use(session({
+  secret: 'GuanTzusSecret',
+  resave: false,
+  saveUninitialized: true
+}))
 
 // set static files
 app.use(express.static('public'))
