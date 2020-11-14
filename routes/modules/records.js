@@ -2,8 +2,6 @@
 const express = require('express')
 const Record = require('../../models/record')
 const Category = require('../../models/category')
-const functions = require('../../models/functions/functions')
-const showSelectedCategory = functions.showSelectedFilter
 const router = express.Router()
 
 // set routes
@@ -43,7 +41,6 @@ router.get('/:id/edit', (req, res) => {
       Category.find()
         .lean()
         .then(categories => {
-          showSelectedCategory(categories, recordCategory)
           res.render('edit', { record, categories, recordCategory })
         })
         .catch(error => console.log(error))
