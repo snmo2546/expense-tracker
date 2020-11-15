@@ -1,4 +1,8 @@
 // include packages and modules
+if (process.env.NODE_ENV !== 'production') {
+  require('dotenv').config()
+}
+
 const Category = require('../category')
 const db = require('../../config/mongoose')
 
