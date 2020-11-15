@@ -13,6 +13,7 @@ router.get('/new', (req, res) => {
 })
 
 router.post('/', (req, res) => {
+  const userId = req.user._id
   const record = req.body
   Category.find()
     .lean()
@@ -24,7 +25,8 @@ router.post('/', (req, res) => {
         'category': record.category,
         'categoryIcon': assignedCategory.categoryIcon,
         'amount': record.amount,
-        'merchant': record.merchant
+        'merchant': record.merchant,
+        userId
       })
         .then(() => res.redirect('/'))
         .catch(error => console.log(error))
@@ -33,8 +35,9 @@ router.post('/', (req, res) => {
 })
 
 router.get('/:id/edit', (req, res) => {
-  const id = req.params.id
-  return Record.findById(id)
+  const userId = req.user._id
+  const _id = req.params.id
+  return Record.findOne({ _id, userId })
     .lean()
     .then(record => {
       const recordCategory = record.category
@@ -49,8 +52,9 @@ router.get('/:id/edit', (req, res) => {
 })
 
 router.put('/:id', (req, res) => {
-  const id = req.params.id
-  return Record.findById(id)
+  const userId = req.user._id
+  const _id = req.params.id
+  return Record.findOne({ _id, userId })
     .then(record => {
       record = Object.assign(record, req.body)
       Category.find()
@@ -66,8 +70,9 @@ router.put('/:id', (req, res) => {
 })
 
 router.delete('/:id', (req, res) => {
-  const id = req.params.id
-  return Record.findById(id)
+  const userId = req.user._id
+  const _id = req.params.id
+  return Record.findOne({ _id, userId })
     .then(record => record.remove())
     .then(() => res.redirect('/'))
     .catch(error => console.log(error))

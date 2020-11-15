@@ -9,22 +9,21 @@ const router = express.Router()
 
 // set routes
 router.get('/', (req, res) => {
-  let selectedFilter = req.query.filter
-  let selectedMonth = req.query.filterMonth
+  const selectedFilter = req.query.filter
+  const selectedMonth = req.query.filterMonth
+  const userId = req.user._id
   Category.find()
     .lean()
     .then(categories => {
-      Record.find()
+      Record.find({ userId })
         .lean()
         .then(records => {
           if (typeof selectedFilter !== 'undefined' && selectedFilter !== 'all') {
             records = records.filter(record => record.category === selectedFilter)
           }
-
           if (typeof selectedMonth !== 'undefined' && selectedMonth !== 'all') {
             records = records.filter(record => record.date.split('-')[1] === selectedMonth)
           }
-
           res.render('index', { records, categories, selectedFilter, months, selectedMonth, totalAmount: calculateTotalAmount(records) })
         })
         .catch(error => console.log(error))
