@@ -6,12 +6,16 @@ const bodyParser = require('body-parser')
 const methodOverride = require('method-override')
 const flash = require('connect-flash')
 
+if (process.env.NODE_ENV !== 'production') {
+  require('dotenv').config()
+}
+
 const routes = require('./routes')
 const usePassport = require('./config/passport')
 require('./config/mongoose')
 
 const app = express()
-const PORT = process.env.PORT || 3000
+const PORT = process.env.PORT
 
 // register express-handlebars helper
 const hbs = exphbs.create({
@@ -27,7 +31,7 @@ app.set('view engine', 'handlebars')
 
 // set session
 app.use(session({
-  secret: 'GuanTzusSecret',
+  secret: process.env.SESSION_SECRET,
   resave: false,
   saveUninitialized: true
 }))
