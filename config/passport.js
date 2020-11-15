@@ -1,12 +1,13 @@
 // include passport and local strategy
 const passport = require('passport')
-const user = require('../models/user')
+const User = require('../models/user')
 const LocalStrategy = require('passport-local').Strategy
 
 module.exports = app => {
   // initialize passport module
   app.use(passport.initialize())
   app.use(passport.session())
+
   // set local strategy
   passport.use(new LocalStrategy({ usernameField: 'email' }, (email, password, done) => {
     User.findOne({ email })
