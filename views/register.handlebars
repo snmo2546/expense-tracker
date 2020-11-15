@@ -2,6 +2,7 @@
   <div class="col-md-6 m-auto">
     <div class="card card-body">
       <h1 class="text-center mt-3">註冊 Register</h1>
+      {{> message}}
       <form action="/users/register" method="POST">
         <div class="form-group">
           <label for="name">名字</label>
@@ -17,8 +18,7 @@
         </div>
         <div class="form-group">
           <label for="confirmPassword">確認密碼</label>
-          <input type="password" id="confirmPassword" name="confirmPassword" class="form-control"
-            placeholder="再次確認密碼">
+          <input type="password" id="confirmPassword" name="confirmPassword" class="form-control" placeholder="再次確認密碼">
         </div>
         <button type="submit" class="btn btn-primary btn-block">註冊</button>
       </form>
